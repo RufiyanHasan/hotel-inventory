@@ -1,0 +1,36 @@
+<div *ngIf="this.showDetails">
+    <div>{{this.showDetails | json}}</div>
+</div>
+<div>
+    <div (click)="addRoom()">Add Room</div>
+    <div (click)="editRoom()">Edit Room</div>
+    <div (click)="deletedRoom()">Delete Room</div>
+    <h1>{{hotelsName}}</h1>
+</div>
+
+<table>
+    <thead>
+    <tr>
+    <th>Room No</th>
+    <th>Room Type</th>
+    <th>Amenities</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let room of roomlist; let odd = odd">
+    <td>{{room.roomNumber}}</td>
+    <td>{{room.roomType}}</td>
+    <td>{{room.amenities}}</td>
+    <td>{{room.price}}</td>
+    <td>{{room.photos}}</td>
+    <td>{{room.checkinTime}}</td>
+    <td>{{room.checkoutTime}}</td>
+    <td>{{room.rating}}</td>
+    <button (click)="selectRoom(room)">Click</button>
+</tr>
+</tbody>
+</table>
+
+<h1>
+    {{totalBytes}} loaded.
+</h1>

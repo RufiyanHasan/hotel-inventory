@@ -1,0 +1,14 @@
+<form>
+    <div class="form-group">
+        <input #emailControl="ngModel" type="email" name="email" [(ngModel)]="this.emailAddress">
+        <div>{{emailControl.errors | json}}</div>
+        <div>{{emailAddress}}</div>
+    </div>
+    <div class="form-group">
+        <input type="password" name="password" [(ngModel)]="this.emailPassword">
+        <div>{{emailPassword}}</div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" (click)="login()">Login</button>
+    </div>
+</form>

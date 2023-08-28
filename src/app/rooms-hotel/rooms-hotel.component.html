@@ -1,0 +1,65 @@
+<!-- <app-header></app-header> -->
+<ng-template #test></ng-template>
+<h1>Welcome to {{hotelName}} hotel.</h1>
+<p class="testing active" #user>Number of rooms:</p>
+
+<div>
+    {{rooms.availableRooms ? 'Rooms are available': "No rooms are available"}}
+</div>
+
+<div *ngIf="rooms.availableRooms > 0">
+    Rooms List
+</div>
+<div [innerText]="rooms.availableRooms"></div>
+<div class="example-box" cdkDrag>
+    Drag me around
+  </div>
+  <div class="example-container">
+    <h2>To do</h2>
+  
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="todo"
+      [cdkDropListConnectedTo]="[doneList, testList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+  
+  <div class="example-container">
+    <h2>Done</h2>
+  
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="done"
+      [cdkDropListConnectedTo]="[todoList, testList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Testing</h2>
+  
+    <div
+      cdkDropList
+      #testList="cdkDropList"
+      [cdkDropListData]="testing"
+      [cdkDropListConnectedTo]="[todoList, doneList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of testing" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+  
+  
+  
+<app-room-list></app-room-list>
+<app-room-list></app-room-list>
+<app-datepicker></app-datepicker>
+<app-file-upload></app-file-upload>
+<app-login></app-login>

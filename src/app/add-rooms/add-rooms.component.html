@@ -1,0 +1,167 @@
+<!-- <div>{{room | json}}</div>
+<div *ngFor="let roomNumber of this.successMessages">
+    <span>{{roomNumber.roomType == '' ? '' : roomNumber.roomType}}</span>
+</div>
+<div>
+    {{roomsForm.invalid | json}}
+    {{roomsForm.valid | json}}
+</div> -->
+
+<!-- Template driven form -->
+<!-- <form #roomsForm="ngForm" (ngSubmit)="addRooms()"> 
+  <div class="forms-group">
+    <input      
+      required
+      class="form-control"
+      type="number"
+      name="roomNum"
+      placeholder="Room number"
+      [(ngModel)]="room.roomNumber" 
+      appHover
+      backgroundColor="lightblue"
+    />
+  </div>
+  <div class="forms-group">
+    <input
+      required
+      class="form-control"
+      type="text"
+      name="roomType"
+      placeholder="Room type"
+      [(ngModel)]="room.roomType"
+      appHover
+      backgroundColor="steelblue"
+      appEmailvalidator
+      #email="ngModel"
+    />
+    <div>{{email.errors | json}}</div>
+  </div>
+  <div class="forms-group">
+    <input
+      #roomAmenities="ngModel"
+      required
+      minlength="5"
+      maxlength="20"
+      class="form-control"
+      type="text"
+      name="amenities"
+      placeholder="Amenities"
+      [(ngModel)]="room.amenities"
+    />
+  </div>
+  <div class="alert alert-danger" *ngIf="roomAmenities.errors?.['minlength']">
+    Amenities should have min 5 chars.
+  </div>
+  <div class="forms-group">
+    <input
+      required
+      class="form-control"
+      type="text"
+      name="price"
+      placeholder="Room price per night"
+      [(ngModel)]="room.price"
+    />
+  </div>
+  <div class="forms-group">
+    <input
+      required
+      class="form-control"
+      type="text"
+      name="photos"
+      placeholder="Photos (Provide link)"
+      [(ngModel)]="room.photos"
+    />
+  </div>
+  <div class="forms-group">
+    <input
+      required
+      class="form-control"
+      type="datetime-local"
+      name="checkintime"
+      placeholder="Check-in time"
+      [(ngModel)]="room.checkinTime"
+    />
+  </div>
+  <div class="forms-group">
+    <input
+      required
+      class="form-control"
+      type="datetime-local"
+      name="checkouttime"
+      placeholder="Check-out time"
+      [(ngModel)]="room.checkoutTime"
+    />
+  </div>
+  <div class="forms-group">
+    <input
+      required
+      class="form-control"
+      type="number"
+      name="string"
+      placeholder="Please give rating"
+      [(ngModel)]="room.rating"
+    />
+  </div>
+  <div>
+    <button [disabled]="roomsForm.invalid" class="btn btn-primary" type="submit">Submit</button>
+  </div>
+</form> -->
+
+
+
+<!-- Reactive form -->
+<div>
+{{bookingForm.value | json}}
+{{bookingForm.pristine | json}}
+{{bookingForm.dirty | json}}
+</div>
+
+<form [formGroup]="bookingForm" class="example-form" (ngSubmit)="addRoomsReactive()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Room Id</mat-label>
+      <input type="text" matInput formControlName="roomId"
+             placeholder="room id">
+             
+      <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error> -->
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="guestEmail"
+             placeholder="guestEmail">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Check In-time</mat-label>
+      <input type="date" matInput formControlName="checkinTime"
+             placeholder="checkinTime">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Check Out-time</mat-label>
+      <input type="date" matInput formControlName="checkOutTime"
+             placeholder="checkOutTime">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Mobile number</mat-label>
+      <input type="number" matInput formControlName="mobileNumber"
+             placeholder="mobileNumber">
+    </mat-form-field>
+    <div formGroupName="country">
+    <mat-form-field class="example-full-width">
+      <mat-label>State</mat-label>
+      <input type="text" matInput formControlName="state"
+             placeholder="State">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>City</mat-label>
+      <input type="text" matInput formControlName="city"
+             placeholder="City">
+    </mat-form-field>
+  </div>
+    <div>
+      <button>Submit</button>
+    </div>
+</form>
