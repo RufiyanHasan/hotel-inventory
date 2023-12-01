@@ -34,6 +34,9 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { TableComponent } from './table/table.component';
+import {MatTableModule} from '@angular/material/table';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 function initFactory(InitService: InitService){
   return () => InitService.init();
@@ -53,6 +56,7 @@ function initFactory(InitService: InitService){
     HoverDirective,
     EmailvalidatorDirective,
     LoginComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,9 @@ function initFactory(InitService: InitService){
     NgbModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule,
+    DragDropModule
   ],
 
   providers: [
